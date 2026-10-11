@@ -1,0 +1,9 @@
+# A group step nests its own `steps`, so this checks images are found
+# there too, not just at the top level of the pipeline.
+steps:
+  - group: ":golang: Build"
+    steps:
+      - command: "go build ./..."
+        agents:
+          image: "golang:1.20.0"
+      - command: "go vet ./..."

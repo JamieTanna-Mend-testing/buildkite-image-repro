@@ -1,0 +1,13 @@
+# Step-level `agents.image`, as used by elastic/elasticsearch:
+# https://github.com/elastic/elasticsearch/blob/62bdfa9c53cb3f5e8698ab16c3279df3b4f3a91c/.buildkite/pipelines/java-ea-check-new-build.yml#L4
+#
+# This uses the same internal `docker.elastic.co` image referenced in the
+# real pipeline, which isn't publicly resolvable - this fixture is about
+# proving the dependency is *detected*, not that Renovate can find an
+# update for it. See `pipeline.yml`/`image-field.yml` for images Renovate
+# can actually resolve releases for.
+steps:
+  - command: ".buildkite/scripts/run-tests.sh"
+    agents:
+      image: "docker.elastic.co/ci-agent-images/buildkite-agent:1.15"
+      memory: "4G"

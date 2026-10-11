@@ -1,0 +1,12 @@
+# `agents` given as an array of `key=value` tags, rather than a map - both
+# forms are valid per the Buildkite pipeline schema:
+# https://raw.githubusercontent.com/buildkite/pipeline-schema/main/schema.json
+agents:
+  - "queue=default"
+  - "image=golang:1.20.0"
+
+steps:
+  - command: "go build ./..."
+    agents:
+      - "image=golang:1.19.0"
+      - "queue=build"

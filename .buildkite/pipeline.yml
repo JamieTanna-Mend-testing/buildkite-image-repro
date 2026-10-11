@@ -1,0 +1,12 @@
+# Pipeline-root `agents.image`, as used by elastic/thumbnails4j:
+# https://github.com/elastic/thumbnails4j/blob/c39f7fc142c6b12de36f77d7f89c127138f174d0/.buildkite/deploy_snapshot_pipeline.yml#L5
+agents:
+  image: "node:18.0.0"
+  queue: "default"
+
+steps:
+  - label: "Build"
+    command: "npm ci && npm test"
+    plugins:
+      - docker-compose#v4.16.0:
+          run: app

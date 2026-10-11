@@ -1,0 +1,9 @@
+# The official, documented pipeline-level/step-level `image` field
+# ("Kubernetes stack only" per the schema), which is distinct from the
+# `agents.image` convention covered by the other fixtures in this repo.
+image: "python:3.9.0"
+
+steps:
+  - command: "pytest"
+  - command: "make lint"
+    image: "python:3.11.0"

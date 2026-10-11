@@ -39,12 +39,12 @@ no-op since 2020, and has since been removed as part of this same work.
   from the `agents.image` convention used elsewhere in this repo.
 - `.buildkite/pipelines/group-step.yml` - a group step, to check images
   are found in nested `steps`, not just at the top level of a pipeline.
-
-Docker images embedded in a plugin's own configuration (for example the
-`docker` plugin's `image` key) are intentionally **not** covered here -
-that's a separate, not-yet-implemented follow-up
-(see `lib/modules/manager/github-actions/known-actions` for the pattern
-it'll be modelled on).
+- `.buildkite/pipelines/known-plugin-image.yml` - a Docker image embedded
+  in a *known* plugin's own config (the `docker` plugin's `image` key), as
+  used by monorepo-diff-buildkite-plugin. This needs a small `knownPlugins`
+  map (modelled on `lib/modules/manager/github-actions/known-actions`)
+  since plugin config is otherwise opaque - an *unknown* plugin's config
+  isn't inspected at all.
 
 ## Testing locally
 

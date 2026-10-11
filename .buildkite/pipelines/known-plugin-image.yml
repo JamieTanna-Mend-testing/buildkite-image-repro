@@ -1,0 +1,9 @@
+# Docker image embedded in a known plugin's own config - here the `docker`
+# plugin's `image` key, as used by monorepo-diff-buildkite-plugin's
+# pipeline:
+# https://github.com/buildkite-plugins/monorepo-diff-buildkite-plugin/blob/847e2735998cd2ce51cd0714f3b344ca4b7d0a18/.buildkite/pipeline.release.yml#L64-L65
+steps:
+  - command: "goreleaser release"
+    plugins:
+      - docker#v5.14.0:
+          image: "goreleaser/goreleaser:v2.17.1"

@@ -1,0 +1,7 @@
+# https://github.com/buildkite-plugins/golang-buildkite-plugin
+# `version` alone resolves to the `golang:${version}` image.
+steps:
+  - command: "go build ./..."
+    plugins:
+      - golang#v1.0.0:
+          version: "1.21"

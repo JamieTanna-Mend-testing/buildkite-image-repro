@@ -1,0 +1,8 @@
+# https://github.com/buildkite-plugins/plugin-tester-buildkite-plugin
+# The published Docker Hub image is `buildkite/plugin-tester`, distinct
+# from the GitHub org path.
+steps:
+  - command: "test plugin"
+    plugins:
+      - plugin-tester#v1.0.0:
+          version: "v4.0.0"

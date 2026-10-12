@@ -1,0 +1,7 @@
+# https://github.com/buildkite-plugins/golangci-lint-buildkite-plugin
+# `docker_image` is only read when `use_docker` is true (the default).
+steps:
+  - command: "lint"
+    plugins:
+      - golangci-lint#v1.0.0:
+          docker_image: "myorg/myapp:1.2.3"

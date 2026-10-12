@@ -1,0 +1,9 @@
+# https://github.com/buildkite-plugins/wiz-buildkite-plugin
+# `image-address` is a scan TARGET the user points at their own build
+# output, not a pinned dependency - the shape is recorded but deliberately
+# NOT extracted (`enabled: false` in known-plugins.ts).
+steps:
+  - command: "scan image"
+    plugins:
+      - wiz#v1.0.0:
+          image-address: "myorg/myapp:1.2.3"

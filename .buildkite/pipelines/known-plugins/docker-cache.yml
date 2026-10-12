@@ -1,0 +1,10 @@
+# https://github.com/buildkite-plugins/docker-cache-buildkite-plugin
+# `image` here is the plugin's OWN build output (an image it builds and
+# caches), not something it pulls - the shape is recorded but deliberately
+# NOT extracted (`enabled: false` in known-plugins.ts). Only the plugin's
+# own version pin should be extracted from this file.
+steps:
+  - command: "build image"
+    plugins:
+      - docker-cache#v1.6.0:
+          image: "myorg/myapp"

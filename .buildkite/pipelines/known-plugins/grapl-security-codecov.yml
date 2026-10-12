@@ -1,0 +1,8 @@
+# https://github.com/grapl-security/codecov-buildkite-plugin (archived)
+# `image` has no real fallback, so both `image` and `tag` are required.
+steps:
+  - command: "upload coverage"
+    plugins:
+      - grapl-security/codecov#v1.0.0:
+          image: "myorg/myapp"
+          tag: "1.2.3"

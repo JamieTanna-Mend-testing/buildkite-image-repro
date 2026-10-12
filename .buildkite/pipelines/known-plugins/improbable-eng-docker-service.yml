@@ -1,0 +1,6 @@
+# https://github.com/improbable-eng/docker-service-buildkite-plugin
+steps:
+  - command: "integration test"
+    plugins:
+      - improbable-eng/docker-service#v2.1.0:
+          container: "myorg/myapp:1.2.3"

@@ -1,0 +1,10 @@
+# https://github.com/buildkite-plugins/docker-image-push-buildkite-plugin
+# `image`/`tag` name a LOCAL image this plugin pushes to a registry - an
+# output, not a dependency. The shape is recorded but deliberately NOT
+# extracted (`enabled: false` in known-plugins.ts).
+steps:
+  - command: "push image"
+    plugins:
+      - docker-image-push#v2.8.0:
+          image: "myorg/myapp"
+          tag: "1.2.3"

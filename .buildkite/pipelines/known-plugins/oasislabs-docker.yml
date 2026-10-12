@@ -1,0 +1,8 @@
+# https://github.com/oasislabs/docker-buildkite-plugin - a fork of the
+# official `docker` plugin pinned to an older snapshot that predates the
+# `chown`/`chown-image` feature, so only `image` applies here.
+steps:
+  - command: "make build"
+    plugins:
+      - oasislabs/docker#v3.0.1:
+          image: "myorg/myapp:1.2.3"

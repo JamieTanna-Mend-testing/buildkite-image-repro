@@ -2,8 +2,31 @@
 # plugin's `image` key, as used by monorepo-diff-buildkite-plugin's
 # pipeline:
 # https://github.com/buildkite-plugins/monorepo-diff-buildkite-plugin/blob/847e2735998cd2ce51cd0714f3b344ca4b7d0a18/.buildkite/pipeline.release.yml#L64-L65
+#
+# The remaining steps below aren't about a different plugin - they prove a
+# known plugin is still recognised no matter how it's *referenced*, which is
+# a separate piece of matching logic to the per-plugin config extraction
+# covered by `.buildkite/pipelines/known-plugins/`.
 steps:
   - command: "goreleaser release"
     plugins:
       - docker#v5.14.0:
           image: "goreleaser/goreleaser:v2.17.1"
+
+  # Explicit `buildkite-plugins/` org prefix in short form - resolves to the
+  # same `docker` known-plugin entry as the bare short form above.
+  - command: "build with explicit org prefix"
+    plugins:
+      - buildkite-plugins/docker#v5.14.0:
+          image: "myorg/myapp:1.2.3"
+
+  # A known OFFICIAL plugin referenced by full git URL instead of short
+  # form - still resolves to the `docker` entry via its repo name.
+  - ssh://git@github.com/buildkite-plugins/docker-buildkite-plugin#v5.14.0:
+      image: "myorg/myapp:1.2.3"
+
+  # A known THIRD-PARTY plugin (not under the `buildkite-plugins` org)
+  # referenced by full git URL - resolves to the `johnsyweb/markdownlint`
+  # entry via its `org/name` repo path.
+  - ssh://git@github.com/johnsyweb/markdownlint-buildkite-plugin#v2.1.0:
+      version: "0.37.0"

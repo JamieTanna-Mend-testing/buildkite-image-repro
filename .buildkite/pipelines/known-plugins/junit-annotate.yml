@@ -1,0 +1,7 @@
+# https://github.com/buildkite-plugins/junit-annotate-buildkite-plugin
+# `ruby-image` is only read when `run-in-docker` is true (the default).
+steps:
+  - command: "annotate results"
+    plugins:
+      - junit-annotate#v2.7.0:
+          ruby-image: "ruby:3.2-alpine"

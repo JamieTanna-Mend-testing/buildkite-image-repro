@@ -1,0 +1,9 @@
+# https://github.com/buildkite-plugins/aws-lambda-deploy-buildkite-plugin
+# `image-uri` is only meaningful when `package-type` is `Image` (default
+# `Zip`).
+steps:
+  - command: "deploy lambda"
+    plugins:
+      - aws-lambda-deploy#v2.1.0:
+          package-type: Image
+          image-uri: "myorg/myapp:1.2.3"

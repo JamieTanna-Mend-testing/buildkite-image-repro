@@ -44,7 +44,20 @@ no-op since 2020, and has since been removed as part of this same work.
   used by monorepo-diff-buildkite-plugin. This needs a small `knownPlugins`
   map (modelled on `lib/modules/manager/github-actions/known-actions`)
   since plugin config is otherwise opaque - an *unknown* plugin's config
-  isn't inspected at all.
+  isn't inspected at all. The rest of the file proves a known plugin is
+  still recognised regardless of how it's *referenced*: with an explicit
+  `buildkite-plugins/` org prefix in short form, via a full git URL for an
+  official plugin, and via a full git URL for a third-party plugin
+  (`johnsyweb/markdownlint`).
+- `.buildkite/pipelines/known-plugins/` - one fixture per plugin in
+  `knownPlugins` (28 in total), each demonstrating the config field(s) that
+  plugin's embedded image is read from. The four plugins marked
+  `enabled: false` there (`docker-cache`, `docker-image-push`, `wiz`,
+  `equinixmetal-buildkite/trivy`) are included too, with their shape set as
+  if it would otherwise match, to prove the boundary is deliberate - only
+  the plugin's own version pin should be extracted from those, not an
+  embedded image, since the field in question names the user's own build
+  output (a scan target or an image to push), not a real dependency.
 
 ## Testing locally
 

@@ -1,0 +1,7 @@
+# https://github.com/grapl-security/vault-env-buildkite-plugin (archived)
+# `image` defaults to `hashicorp/envconsul`, so only `tag` is needed here.
+steps:
+  - command: "run with vault env"
+    plugins:
+      - grapl-security/vault-env#v1.0.0:
+          tag: "1.10.0"

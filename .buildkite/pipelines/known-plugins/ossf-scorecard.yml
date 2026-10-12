@@ -1,0 +1,7 @@
+# https://github.com/buildkite-plugins/ossf-scorecard-buildkite-plugin
+# Backing image is on GHCR, not Docker Hub.
+steps:
+  - command: "run scorecard"
+    plugins:
+      - ossf-scorecard#v1.0.0:
+          version: "v5.4.0"

@@ -1,0 +1,11 @@
+# https://github.com/forumone/extract-buildkite-plugin
+# `image` can be a plain string, or an object with `repository`+`tag` (the
+# object form used here) or `repository`+`service` (not extractable, since
+# there's no version text to anchor a replace to).
+steps:
+  - command: "extract files"
+    plugins:
+      - forumone/extract#v2.0.0:
+          image:
+            repository: "myorg/myapp"
+            tag: "1.2.3"

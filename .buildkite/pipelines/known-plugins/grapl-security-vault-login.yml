@@ -1,0 +1,7 @@
+# https://github.com/grapl-security/vault-login-buildkite-plugin (archived)
+# `image` defaults to `hashicorp/vault`, so only `tag` is needed here.
+steps:
+  - command: "vault login"
+    plugins:
+      - grapl-security/vault-login#v1.0.0:
+          tag: "1.10.0"

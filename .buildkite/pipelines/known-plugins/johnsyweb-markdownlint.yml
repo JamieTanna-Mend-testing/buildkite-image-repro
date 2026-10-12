@@ -1,0 +1,7 @@
+# https://github.com/johnsyweb/markdownlint-buildkite-plugin
+# `version` resolves to the `markdownlint/markdownlint:${version}` image.
+steps:
+  - command: "markdownlint docs/"
+    plugins:
+      - johnsyweb/markdownlint#v2.1.0:
+          version: "0.37.0"

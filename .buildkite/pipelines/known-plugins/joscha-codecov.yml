@@ -1,0 +1,6 @@
+# https://github.com/joscha/codecov-buildkite-plugin
+steps:
+  - command: "upload coverage"
+    plugins:
+      - joscha/codecov#v1.0.0:
+          docker_image: "myorg/myapp:1.2.3"

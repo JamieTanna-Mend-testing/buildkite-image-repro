@@ -1,0 +1,6 @@
+# https://github.com/jameslnewell/docker-run-buildkite-plugin
+steps:
+  - command: "run container"
+    plugins:
+      - jameslnewell/docker-run#v1.2.0:
+          image: "myorg/myapp:1.2.3"

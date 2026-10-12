@@ -1,0 +1,13 @@
+# https://github.com/buildkite-plugins/golang-cross-compile-buildkite-plugin
+# Doesn't run Docker directly - delegates one step per `targets[]` entry to
+# the `golang` plugin, so each target's `version` resolves to a
+# `golang:${version}` image. A target without `version` is skipped without
+# dropping the others.
+steps:
+  - command: "cross-compile"
+    plugins:
+      - golang-cross-compile#v1.0.0:
+          targets:
+            - version: "1.21"
+              goos: linux
+            - goos: darwin

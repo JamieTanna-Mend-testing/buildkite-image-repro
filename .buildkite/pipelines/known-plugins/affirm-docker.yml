@@ -1,0 +1,10 @@
+# https://github.com/affirm/docker-buildkite-plugin - an unmodified fork of
+# the official `docker` plugin, sharing the same `image`/`chown`/
+# `chown-image`/`mount-checkout` shape.
+steps:
+  - command: "make test"
+    plugins:
+      - affirm/docker#v5.12.0:
+          image: "myorg/myapp:1.2.3"
+          chown: true
+          chown-image: "myorg/chowner:1.0.0"

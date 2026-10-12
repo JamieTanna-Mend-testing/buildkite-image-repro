@@ -1,0 +1,12 @@
+# https://github.com/buildkite-plugins/docker-buildkite-plugin
+# Full config shape: `image` is the main dependency, and `chown`/
+# `chown-image` is a second, optional embedded image - only extracted
+# when `chown` is true AND `mount-checkout` is not explicitly false.
+steps:
+  - command: "make test"
+    plugins:
+      - docker#v5.14.0:
+          image: "golang:1.22"
+          chown: true
+          chown-image: "alpine:3.19"
+          mount-checkout: true

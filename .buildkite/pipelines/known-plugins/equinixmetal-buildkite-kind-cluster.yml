@@ -1,0 +1,8 @@
+# https://github.com/equinixmetal-buildkite/kind-cluster-buildkite-plugin
+# `custom_image` overrides an internal, pinned `kindest/node` image - the
+# only field here that's a user-configurable Docker dependency.
+steps:
+  - label: ":k8s: Get Pods"
+    plugins:
+      - equinixmetal-buildkite/kind-cluster#v1.0.0:
+          custom_image: "myorg/myapp:1.2.3"

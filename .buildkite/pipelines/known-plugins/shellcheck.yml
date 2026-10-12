@@ -1,0 +1,9 @@
+# https://github.com/buildkite-plugins/shellcheck-buildkite-plugin
+# `image` defaults to `koalaman/shellcheck` when unset - here we set both
+# `image` and `version` explicitly.
+steps:
+  - command: "shellcheck scripts/*.sh"
+    plugins:
+      - shellcheck#v1.4.0:
+          image: "myorg/shellcheck"
+          version: "v0.9.0"

@@ -1,0 +1,8 @@
+# https://github.com/buildkite-plugins/docker-compose-buildkite-plugin
+# `run-image` is the Compose service image actually run for this step.
+steps:
+  - command: "npm test"
+    plugins:
+      - docker-compose#v4.16.0:
+          run: app
+          run-image: "myorg/myapp:1.2.3"

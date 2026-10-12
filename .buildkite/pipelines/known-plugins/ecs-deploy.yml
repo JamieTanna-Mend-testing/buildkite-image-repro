@@ -1,0 +1,14 @@
+# https://github.com/buildkite-plugins/ecs-deploy-buildkite-plugin
+# `image` can be a plain string or an array of strings - one container
+# definition is updated per entry either way.
+steps:
+  - label: "Deploy single container"
+    plugins:
+      - ecs-deploy#v3.3.0:
+          image: "myorg/myapp:1.2.3"
+  - label: "Deploy multi-container task"
+    plugins:
+      - ecs-deploy#v3.3.0:
+          image:
+            - "myorg/app-one:1.0.0"
+            - "myorg/app-two:2.0.0"

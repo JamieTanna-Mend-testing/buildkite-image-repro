@@ -4,4 +4,4 @@ steps:
   - command: "go build ./..."
     plugins:
       - golang#v1.0.0:
-          version: "1.21"
+          version: "1.27"

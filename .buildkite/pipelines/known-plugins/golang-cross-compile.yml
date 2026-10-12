@@ -8,6 +8,6 @@ steps:
     plugins:
       - golang-cross-compile#v1.0.0:
           targets:
-            - version: "1.21"
+            - version: "1.27"
               goos: linux
             - goos: darwin

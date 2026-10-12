@@ -6,7 +6,7 @@ steps:
   - command: "make test"
     plugins:
       - docker#v5.14.0:
-          image: "golang:1.22"
+          image: "golang:1.27"
           chown: true
           chown-image: "alpine:3.19"
           mount-checkout: true

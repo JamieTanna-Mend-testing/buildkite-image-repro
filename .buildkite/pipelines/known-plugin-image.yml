@@ -11,7 +11,7 @@ steps:
   - command: "goreleaser release"
     plugins:
       - docker#v5.14.0:
-          image: "goreleaser/goreleaser:v2.17.1"
+          image: "goreleaser/goreleaser:v2.18.3"
 
   # Explicit `buildkite-plugins/` org prefix in short form - resolves to the
   # same `docker` known-plugin entry as the bare short form above.

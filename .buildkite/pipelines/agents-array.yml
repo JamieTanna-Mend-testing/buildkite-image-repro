@@ -3,10 +3,10 @@
 # https://raw.githubusercontent.com/buildkite/pipeline-schema/main/schema.json
 agents:
   - "queue=default"
-  - "image=golang:1.20.0"
+  - "image=golang:1.27.2"
 
 steps:
   - command: "go build ./..."
     agents:
-      - "image=golang:1.19.0"
+      - "image=golang:1.27.2"
       - "queue=build"
